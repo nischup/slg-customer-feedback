@@ -1,0 +1,52 @@
+.typing-text {
+  display: inline-block;
+  overflow: hidden;
+  margin-top: 50px;
+  white-space: nowrap;
+  animation: typing 3s steps(70), step-end infinite, removeBorder 0.1s forwards;
+  transform: translateY(-100%); 
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+    -webkit-width: 0; /* Add this for older WebKit browsers */
+  }
+  to {
+    width: 100%;
+    -webkit-width: 100%; /* Add this for older WebKit browsers */
+  }
+}
+
+@keyframes removeBorder {
+  0% {
+    border-right-width: 2px;
+    -webkit-border-right-width: 2px; /* Add this for older WebKit browsers */
+  }
+  100% {
+    border-right-width: 0px;
+    -webkit-border-right-width: 0px; /* Add this for older WebKit browsers */
+  }
+}
+
+
+
+h4 {
+    margin-top: -25px!important;
+    margin-bottom: -20px !important;
+    font-weight: 500 !important;
+    line-height: 1.2 !important;
+    font-size: 18px !important;
+}
+
+.typing-complete {
+  animation: none; /* Stop the animation when the class "typing-complete" is applied */
+  border-right: 0px solid #333;
+
+}
+
+// .rounded-right {
+//   border-radius: 0 75px 15px 0; /* Adjust the values as needed to control the curve */
+//   overflow: hidden;
+// }
+

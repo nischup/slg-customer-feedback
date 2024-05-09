@@ -1,0 +1,58 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title> Questions of Feedback  </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+
+<!--   <p>How was the factory Visit ? </p>
+
+  <ion-button expand="block" [routerLink]="['/feedback-start-question']">Next</ion-button>  -->
+
+
+<ion-row>
+  <ion-col col-12 *ngIf="questionList.length > 0">
+    <h4 text-center>
+      <span class="typing-text"> {{ getCurrentQuestion().question }}  </span>
+    </h4>
+
+    <ion-list radio-group>
+
+      <ion-item text-wrap color="light" style="margin-top: 1%;">
+        <ion-label>{{ getCurrentQuestion().questionoptions.option1 }}</ion-label>
+        <ion-radio [value]="1" item-left (click)="nextQuestion()"></ion-radio>
+      </ion-item>
+
+      <ion-item text-wrap color="light" style="margin-top: 1%;">
+        <ion-label>{{ getCurrentQuestion().questionoptions.option2 }}</ion-label>
+        <ion-radio [value]="1" item-left (click)="nextQuestion()"></ion-radio>
+      </ion-item>
+
+      <ion-item text-wrap color="light" style="margin-top: 1%;">
+        <ion-label>{{ getCurrentQuestion().questionoptions.option3 }}</ion-label>
+        <ion-radio [value]="1" item-left (click)="nextQuestion()"></ion-radio>
+      </ion-item>
+
+      <ion-item text-wrap color="light" style="margin-top: 1%;">
+        <ion-label>{{ getCurrentQuestion().questionoptions.option4 }}</ion-label>
+        <ion-radio [value]="1" item-left (click)="nextQuestion()"></ion-radio>
+      </ion-item>
+
+    </ion-list>
+
+    <ion-button expand="block" [routerLink]="['/feedback-start-question']" >Next</ion-button>
+
+    
+
+  </ion-col>
+</ion-row>
+
+
+
+
+  
+</ion-content>

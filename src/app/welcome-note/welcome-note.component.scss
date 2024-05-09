@@ -1,0 +1,28 @@
+.custom-card-header {
+  font-size: 25px !important; /* Change this to your desired font size */
+}
+
+.custom-card-content {
+  font-size: 18px !important; /* Change this to your desired font size */
+}
+
+.typing-text {
+  display: inline-block;
+  overflow: hidden;
+  // margin-top: 50px;
+  white-space: nowrap;
+  text-align: center;
+  animation: dropText 1s ease-in-out forwards;
+}
+
+@keyframes dropText {
+  0% {
+    -webkit-transform: translateY(-100%);
+    transform: translateY(-100%);
+  }
+  100% {
+    -webkit-transform: translateY(0%);
+    transform: translateY(0%);
+  }
+}
+

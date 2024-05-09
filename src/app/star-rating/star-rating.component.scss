@@ -1,0 +1,13 @@
+.star {
+  color: #919f91; /* Initial color is white */
+  cursor: pointer;
+  font-size: 35px;
+}
+
+.star.full {
+  color: #f5932a; /* Color when rated (e.g., green) */
+}
+
+.star.half {
+  color: gold; 
+}

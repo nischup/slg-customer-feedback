@@ -1,0 +1,39 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title> Questions </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-loading
+    [showBackdrop]="true"
+    [duration]="0" 
+    [cssClass]="'custom-loader'" 
+    *ngIf="isLoading"
+  ></ion-loading>
+
+
+<ion-card *ngFor="let qdata of questionList">
+  <ion-card-header>
+    <ion-card-title> {{ qdata.question }} </ion-card-title>
+    <ion-card-subtitle>
+    <ng-container *ngIf="qdata.question_type == 1">Text / Comments</ng-container>
+    <ng-container *ngIf="qdata.question_type == 2">Yes / No</ng-container>
+    <ng-container *ngIf="qdata.question_type == 3">Ranking</ng-container>
+    <ng-container *ngIf="qdata.question_type == 4">Multiple Choice</ng-container>
+  </ion-card-subtitle>
+
+  </ion-card-header>
+  
+  <ion-buttons slot="end">
+    <ion-button>
+      <ion-icon name="ellipsis-vertical-outline"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+</ion-card>
+
+</ion-content>

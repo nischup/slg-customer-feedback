@@ -1,0 +1,60 @@
+.feedback-button {
+  opacity: 0;
+}
+
+.rounded-right {
+  border-radius: 0 100px 25px 100px; 
+  overflow: hidden;
+}
+
+.typing-text {
+  display: inline-block;
+  overflow: hidden;
+  margin-top: 50px;
+  white-space: nowrap;
+  text-align: center;
+  font-size: 30px;
+  color: #796969;
+  font-style: italic;
+  font-weight: 500 !important;
+  // border-right: 2px solid #333; 
+  animation: dropText 1s ease-in-out forwards;
+  // animation: typing 3s steps(70), step-end infinite, removeBorder 0.1s forwards, dropText 1s ease-in-out forwards;
+  // transform: translateY(-100%); 
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+    -webkit-width: 0; /* Add this for older WebKit browsers */
+  }
+  to {
+    width: 100%;
+    -webkit-width: 100%; /* Add this for older WebKit browsers */
+  }
+}
+
+@keyframes removeBorder {
+  0% {
+    border-right-width: 2px;
+    -webkit-border-right-width: 2px; /* Add this for older WebKit browsers */
+  }
+  100% {
+    border-right-width: 0px;
+    -webkit-border-right-width: 0px; /* Add this for older WebKit browsers */
+  }
+}
+
+
+@keyframes dropText {
+  0% {
+    -webkit-transform: translateY(-100%);
+    transform: translateY(-100%);
+  }
+  100% {
+    -webkit-transform: translateY(0%);
+    transform: translateY(0%);
+  }
+}
+
+

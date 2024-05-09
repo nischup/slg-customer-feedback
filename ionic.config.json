@@ -1,0 +1,7 @@
+{
+  "name": "slgfeedback",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

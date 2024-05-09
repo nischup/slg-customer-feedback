@@ -1,0 +1,95 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title> Questions of Feedback </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+
+  <!-- Loading Indicator -->
+  <ion-loading *ngIf="isLoading" message="Loading questions..."></ion-loading>
+
+  <form [formGroup]="questionForm" (submit)="sendNewApplication()">
+   
+        <ion-col col-12 *ngFor="let qdata of questionList; let i = index">
+          <div class="text-comments" *ngIf="qdata.question_type == 1">
+              <h4 text-center>
+                <span class="typing-text">{{ qdata.question }}</span>
+              </h4>
+            <div class="ion-padding-start">
+              <ion-input label="Comments" labelPlacement="floating" [formControlName]="'question_ans_' + i" [counter]="true" maxlength="200"></ion-input>
+               <input type="hidden" [formControlName]="'question_type' + i">
+            </div>
+          </div>       
+
+          <div class="yes-no" *ngIf="qdata.question_type == 2">
+              <h4 text-center>
+                <span class="typing-text">{{ qdata.question }}</span>
+              </h4>
+               <input type="hidden" [formControlName]="'question_type' + i">
+              <ion-radio-group [formControlName]="'question_ans_' + i">
+                <ion-item text-wrap color="light" style="margin-top: 1%;">
+                  <ion-label>Yes</ion-label>
+                  <ion-radio value="Yes">Yes</ion-radio><br />
+                </ion-item>        
+                <ion-item text-wrap color="light" style="margin-top: 1%;">
+                  <ion-label>No</ion-label>
+                  <ion-radio value="No">No</ion-radio><br />
+                </ion-item>        
+            </ion-radio-group>
+          </div>       
+
+          <div class="ranking" *ngIf="qdata.question_type == 3">
+              <h4 text-center>
+                <span class="typing-text">{{ qdata.question }}</span>
+              </h4>
+            <app-star-rating
+              [maxRating]="5" 
+              [rating]="userRating"
+              (ratingChange)="onRatingChanged($event, i)" 
+            ></app-star-rating>
+            <input type="hidden" [value]="userRating" [formControlName]="'question_ans_' + i">
+            <input type="hidden" [formControlName]="'question_type' + i">
+              <!-- <p>Selected Rating: {{ userRating }}</p> -->
+          </div>      
+
+          <div class="multiple-choice" *ngIf="qdata.question_type == 4">
+              <h4 text-center>
+                <span class="typing-text">{{ qdata.question }}</span>
+              </h4>
+               <input type="hidden" [formControlName]="'question_type' + i">
+              <ion-radio-group [formControlName]="'question_ans_' + i">
+                <ion-item text-wrap color="light" style="margin-top: 1%;">
+                  <ion-label>{{ qdata.questionoptions.option1 }}</ion-label>
+                  <ion-radio value="{{ qdata.questionoptions.option1 }}">{{ qdata.questionoptions.option1 }}</ion-radio><br />
+                </ion-item>        
+                <ion-item text-wrap color="light" style="margin-top: 1%;">
+                  <ion-label>{{ qdata.questionoptions.option2 }}</ion-label>
+                  <ion-radio value="{{ qdata.questionoptions.option2 }}">{{ qdata.questionoptions.option2 }}</ion-radio><br />
+                </ion-item>        
+                <ion-item text-wrap color="light" style="margin-top: 1%;">
+                  <ion-label>{{ qdata.questionoptions.option3 }}</ion-label>
+                  <ion-radio value="{{ qdata.questionoptions.option3 }}">{{ qdata.questionoptions.option3 }}</ion-radio><br />
+                </ion-item>        
+                <ion-item text-wrap color="light" style="margin-top: 1%;">
+                  <ion-label>{{ qdata.questionoptions.option4 }}</ion-label>
+                  <ion-radio value="{{ qdata.questionoptions.option4 }}">{{ qdata.questionoptions.option4 }}</ion-radio><br />
+                </ion-item>
+            </ion-radio-group>
+          </div>
+          <br>
+        </ion-col>
+ 
+
+        <ion-row>
+             <ion-col>
+                <ion-button expand="block" type="submit" shape="round" color="success" class="rounded-right">Next</ion-button>
+
+                <!-- <ion-button  expand="block" [routerLink]="['/feedback-user-detail']">Submit</ion-button>  -->
+              </ion-col>
+        </ion-row>
+  </form>
+</ion-content>

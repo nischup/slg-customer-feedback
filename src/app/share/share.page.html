@@ -1,0 +1,36 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title> Social Share </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+
+<ion-content>
+
+<ion-card class="centered-card">
+  <div class="centered-content">
+    <img alt="slg feedback-icon" src="../../assets/feedback-icon.png" />
+    <ion-card-header>
+      <!-- Add any header content here if needed -->
+    </ion-card-header>
+
+    <ion-card-content>
+      Share this app and give your feedback...
+    </ion-card-content>
+  </div>
+</ion-card>
+
+
+
+
+<ion-button expand="full" (click)="shareText()" color="success">
+  <ion-icon name="share-social-outline" ></ion-icon> Share Now
+</ion-button>
+
+</ion-content>
+
+</ion-content>

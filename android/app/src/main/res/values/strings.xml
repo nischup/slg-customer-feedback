@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Feedback</string>
+    <string name="title_activity_main">Feedback</string>
+    <string name="package_name">com.slg.myfeedApp</string>
+    <string name="custom_url_scheme">com.slg.myfeedApp</string>
+</resources>

@@ -1,0 +1,10 @@
+.centered-card {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  height: 30vh; /* Set the card height to fill the viewport height */
+}
+
+.centered-content {
+  text-align: center; /* Center text within the content */
+}

@@ -1,0 +1,33 @@
+
+<!-- for full star -->
+
+<!-- <div class="star-rating">
+  <span
+    class="star"
+    *ngFor="let star of stars; let i = index"
+    [class.full]="i < rating"
+    (click)="rate(i + 1)"
+  >
+    &#9733;
+  </span>
+</div> -->
+
+
+
+
+<!-- for half star -->
+
+
+<div class="star-rating">
+  <span
+    class="star"
+    *ngFor="let star of stars; let i = index"
+    [class.full]="i < rating" 
+    [class.half]="i === rating - 0.5" 
+    (click)="rate(i + 1)"
+  >
+    &#9733;
+  </span>
+</div>
+
+

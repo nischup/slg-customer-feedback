@@ -1,0 +1,16 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title> Feedback </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true" class="ion-padding">
+
+  <p class="typing-text"> Share your experience.</p>
+
+  <!-- <ion-button expand="block" (click)=feedbackQuestion()>START FEEDBACK</ion-button>  -->
+  <ion-button expand="block" [routerLink]="['/feedback-start-question-vertical']" color="success"  class="rounded-right" >START FEEDBACK</ion-button> 
+  
+</ion-content>
