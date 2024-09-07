@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { Platform, AlertController } from '@ionic/angular';
+import { App } from '@capacitor/app';
+
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -14,11 +17,49 @@ export class AppComponent {
     { title: 'Share', url: '/share', icon: 'share' },
   ];
 
+ constructor(private platform: Platform, private alertController: AlertController) {
+    this.initializeApp();
+  }
 
-  public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
+  initializeApp() {
+    this.platform.ready().then(() => {
+      // Listen for the hardware back button on Android
+      App.addListener('backButton', ({ canGoBack }) => {
+        if (!canGoBack) {
+          // Show the alert to confirm exit
+          this.showExitConfirm();
+        } else {
+          // Navigate back if possible
+          window.history.back();
+        }
+      });
+    });
+  }
 
-  constructor() {
+  // Method to show an exit confirmation alert
+  async showExitConfirm() {
+    const alert = await this.alertController.create({
+      header: 'Exit App',
+      message: 'Do you really want to exit the app?',
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          handler: () => {
+            // Do nothing, just dismiss the alert
+          },
+        },
+        {
+          text: 'Exit',
+          handler: () => {
+            // Exit the app
+            App.exitApp();
+          },
+        },
+      ],
+    });
 
+    await alert.present();
   }
   
 }

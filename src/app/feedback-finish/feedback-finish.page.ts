@@ -19,11 +19,9 @@ export class FeedbackFinishPage implements OnInit {
   }
 
     redirectToAnotherPage() {
-    // Use setTimeout to delay the redirection for 20 seconds (20000 milliseconds)
-    setTimeout(() => {
-      // Replace 'target-page' with the path of the page you want to navigate to
-      this.router.navigate(['/home']);
-    }, 10000);
+      setTimeout(() => {
+        this.router.navigate(['/home']);
+      }, 15000);
   }
 
 }
